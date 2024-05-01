@@ -1,10 +1,37 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./index.css" />
   </head>
   <body>
+    <div class="title" onclick="location.href='index.html'">
+      <h1>Justice League: Crisis on Infinite Earths Part Two</h1>
+      <p>
+        Characters from different backgrounds are thrown together when the plane
+        they're travelling on crashes into the Pacific Ocean. A nightmare fight
+        for survival ensues with the air supply running out and dangers creeping
+        in from all sides.
+      </p>
+    </div>
+
+    <nav>
+      <ul class="nav-bar">
+        <li>All</li>
+        <li>Animation</li>
+        <li>Action</li>
+        <li>Comedy</li>
+        <li>Horror</li>
+        <li>Family</li>
+        <li>Fantasy</li>
+      </ul>
+    </nav>
+
+    <main class="movie-card-list"></main>
+
+    <script src="./script/index.js"></script>
   </body>
 </html>
