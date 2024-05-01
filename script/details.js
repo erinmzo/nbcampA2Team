@@ -8,13 +8,19 @@ const options = {
 };
 
 async function creditApi() {
-  const { cast } = await fetch(
-    "https://api.themoviedb.org/3/movie/693134/credits?language=en-US",
-    options
-  ).then((response) => response.json());
-
-  return cast;
+  try {
+    const response = await fetch(
+      "https://api.themoviedb.org/3/movie/693134/credits?language=en-US",
+      options
+    );
+    const data = await response.json();
+    return data.cast;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
 }
+
 
 async function creditRender() {
   const castList = await creditApi();
