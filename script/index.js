@@ -8,7 +8,7 @@ const options = {
 async function movie() {
   const url = `https://api.themoviedb.org/3/tv/top_rated?language=ko-KR&page=1`;
 
-  const response = await fetch(url);
+  const response = await fetch(url, options);
   const data = await response.json();
 
   const cardList = data['results'].map(({ original_name, poster_path, id }) => {
@@ -16,7 +16,7 @@ async function movie() {
       <img src="https://image.tmdb.org/t/p/original${poster_path}" alt="poster" onclick="alert('${id}')"/>
       <h2 class="movie-title">${original_name}</h2>
     </div>`;
-  }).join(''); // 배열을 하나의 문자열로 연결
+  }).join('');
 
   document.querySelector('.movie-card-list').innerHTML = cardList;
 }
