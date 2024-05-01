@@ -8,7 +8,7 @@ const options = {
 async function movie() {
   const url = `https://api.themoviedb.org/3/tv/top_rated?language=ko-KR&page=1`;
 
-  const response = await fetch(url);
+  const response = await fetch(url, options);
   const data = await response.json();
 
   const cardList = data['results'].map(({ original_name, poster_path, id }) => {
