@@ -3,7 +3,7 @@
 
 <br>
 
-<h1 style="font-size:24px;" >Who are we? 🤷‍♂️</h1>
+## <h1 style="font-size:24px;" >Who are we? 🤷‍♂️</h1>
 A2조 👀 눈에는 눈 이에는 2조 🤞
 * 선장 - 홍연우
 * 선원 - 조민수, 이성찬, 한효림, 홍유나, 정현욱
