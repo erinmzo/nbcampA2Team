@@ -20,17 +20,17 @@
 │   │   ├──📄 footer.css
 │   │   ├──📄 footer.html
 │   │   ├──📄 header.css
-│   │   ├──📄 header.html
+│   │   └──📄 header.html
 │   ├──📄 details.css
 │   ├── 📂 script
 │   │   ├──📄 details.js
 │   │   ├──📄 index.js
-│   │   ├──📄 review.js
+│   │   └──📄 review.js
 │   ├──📄 .gitignore
 │   ├──📄 index.css
 │   ├──📄 index.html
 │   ├──📄 package-lock.json
 │   ├──📄 package.json
-│   ├──📄 reset.css
+│   └──📄 reset.css
 
 ```
