@@ -25,12 +25,12 @@ function displayMovieDetails(movie) {
   document.getElementById("runtime").textContent = movie.runtime + " min";
   document.getElementById("rating").textContent = movie.vote_average.toFixed(1);
 
-  const detailsSection = document.querySelector("main");
+  const detailsSection = document.getElementById("main");
   detailsSection.style.backgroundImage = `url('https://image.tmdb.org/t/p/original${movie.backdrop_path}')`;
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  const testMovieId = "693134"; // 임시로 작동하는지 확인. 파이트 클럽 영화의 ID
+  const testMovieId = "693134"; // 임시로 작동하는지 확인. 듄 Part 2의 ID
   fetchMovieDetails(testMovieId);
   // const movieId = new URLSearchParams(window.location.search).get("id"); // URL 쿼리 스트링 받아오기
   // fetchMovieDetails(movieId);
