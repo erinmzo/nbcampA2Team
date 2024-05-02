@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>영화 검색 사이트</title>
     <link rel="stylesheet" href="details.css" />
-    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../reset.css" />
+    <script type="module" src="../script/details.js"></script>
     <script type="module" src="../script/review.js"></script>
   </head>
   <body>
@@ -31,29 +32,7 @@
     </section>
     <section id="credit">
       <div class="container">
-        <ul>
-          <li>
-            <img src="" alt="배우이름" />
-            <div>
-              <span class="casting">배역명</span>
-              <span class="actor-name">배우이름</span>
-            </div>
-          </li>
-          <li>
-            <img src="" alt="배우이름" />
-            <div>
-              <span class="casting">배역명</span>
-              <span class="actor-name">배우이름</span>
-            </div>
-          </li>
-          <li>
-            <img src="" alt="배우이름" />
-            <div>
-              <span class="casting">배역명</span>
-              <span class="actor-name">배우이름</span>
-            </div>
-          </li>
-        </ul>
+        <ul class="actor-box"></ul>
       </div>
     </section>
     <section id="review">
@@ -62,12 +41,14 @@
         <form id="reviewForm">
           <input type="text" placeholder="  닉네임" id="nickname" />
           <input type="text" placeholder="  비밀번호" id="password" />
-          <input type="text" placeholder="  리뷰를 남겨주세요." id="commentText" />
+          <input
+            type="text"
+            placeholder="  리뷰를 남겨주세요."
+            id="commentText"
+          />
           <button type="submit" id="reviewBtn">등록</button>
         </form>
-        <ul class="review-box" id="reviewBox">
-
-        </ul>
+        <ul class="review-box" id="reviewBox"></ul>
       </div>
     </section>
     <footer></footer>
