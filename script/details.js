@@ -8,7 +8,7 @@ const options = {
 
 async function fetchMovieDetails(movieID) {
   try {
-    const url = `https://api.themoviedb.org/3/movie/${movieID}?language=ko-KR`;
+    const url = `https://api.themoviedb.org/3/movie/${movieID}?language=en-US`;
     const response = await fetch(url, options);
     const movie = await response.json();
     displayMovieDetails(movie);
@@ -22,15 +22,18 @@ function displayMovieDetails(movie) {
   document.getElementById("overview").textContent = movie.overview;
   document.getElementById("genre").textContent = movie.genres.map((genre) => genre.name).join(", "); // 장르 배열을 문자열로 변환
   document.getElementById("release-date").textContent = movie.release_date;
-  document.getElementById("runtime").textContent = movie.runtime + "분";
-  document.getElementById("rating").textContent = movie.vote_average;
+  document.getElementById("runtime").textContent = movie.runtime + " min";
+  document.getElementById("rating").textContent = movie.vote_average.toFixed(1);
+
+  const detailsSection = document.querySelector("main");
+  detailsSection.style.backgroundImage = `url('https://image.tmdb.org/t/p/original${movie.backdrop_path}')`;
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  const testMovieId = "550"; // 예: "파이트 클럽" 영화의 ID
+  const testMovieId = "693134"; // 임시로 작동하는지 확인. 파이트 클럽 영화의 ID
   fetchMovieDetails(testMovieId);
-  // const movieId = new URLSearchParams(window.location.search).get("id");
-  // fetchMovieDetails(movieId); // 영화 상세 정보 가져오기
+  // const movieId = new URLSearchParams(window.location.search).get("id"); // URL 쿼리 스트링 받아오기
+  // fetchMovieDetails(movieId);
 });
 
 async function creditApi() {
