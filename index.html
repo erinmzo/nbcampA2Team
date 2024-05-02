@@ -6,8 +6,21 @@
     <title>Document</title>
     <link rel="stylesheet" href="./reset.css" />
     <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./pages/components/header.css" />
+    <link rel="stylesheet" href="./pages/components/footer.css" />
+    <script type="module" src="./script/index.js"></script>
+    <script type="module" src="./script/search.js"></script>
   </head>
   <body>
+    <header>
+      <div class="container">
+        <h1 class="logo">EYESMOVIE</h1>
+        <form id="search">
+          <input id="searchBar" type="text" placeholder="검색어를 입력하세요" />
+          <input id="searchBtn" type="submit" value="" />
+        </form>
+      </div>
+    </header>
     <div class="container" onclick="location.href='index.html'">
       <section id="title">
         <div class="rating">Rating 6.5 / 10</div>
@@ -50,7 +63,5 @@
     <a href="#" class="btn_gotop">
       <span>위</span>
     </a>
-
-    <script src="./script/index.js"></script>
   </body>
 </html>
