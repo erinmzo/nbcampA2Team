@@ -8,7 +8,7 @@ const options = {
   }
 };
 
-async function movie() {
+export async function movie() {
   const url = 'https://api.themoviedb.org/3/movie/top_rated?language=ko-KR&page=1';
 
   try {
