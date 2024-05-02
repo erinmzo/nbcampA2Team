@@ -35,10 +35,9 @@ async function movieRender() {
   const data = await movie();
   const cardList = data['results']
     .map(({ original_title, poster_path, id }) => {
-      return `
-    <div class="movie-card">
+      return `<div class="movie-card">
       <img src="https://image.tmdb.org/t/p/original${poster_path}" alt="poster" onclick="alert('${id}')"/>
-      <h2 class="movie-title">${original_title}</h2>
+      <h2 class="movie-title">${title}</h2>
     </div>`;
     })
     .join('');

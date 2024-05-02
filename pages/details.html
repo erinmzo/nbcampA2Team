@@ -4,9 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>영화 검색 사이트</title>
+    <link rel="stylesheet" href="details.css" />
     <link rel="stylesheet" href="../reset.css" />
-    <link rel="stylesheet" href="./details.css" />
     <script type="module" src="../script/details.js"></script>
+    <script type="module" src="../script/review.js"></script>
   </head>
   <body>
     <header></header>
@@ -31,31 +32,23 @@
     </section>
     <section id="credit">
       <div class="container">
-        <h2>Actors</h2>
         <ul class="actor-box"></ul>
       </div>
     </section>
-    <section id="reivew">
+    <section id="review">
       <div class="container">
-        <form>
-          <input type="text" placeholder="닉네임" class="nickname" />
-          <input type="text" placeholder="비밀번호" class="password" />
-          <input type="text" placeholder="리뷰를 남겨주세요." class="comment" />
+        <h3>Review</h3>
+        <form id="reviewForm">
+          <input type="text" placeholder="  닉네임" id="nickname" />
+          <input type="text" placeholder="  비밀번호" id="password" />
+          <input
+            type="text"
+            placeholder="  리뷰를 남겨주세요."
+            id="commentText"
+          />
+          <button type="submit" id="reviewBtn">등록</button>
         </form>
-        <ul class="reivew-box">
-          <li>
-            <span class="reivewer">닉네임</span>
-            <span class="reivew">개노잼</span>
-          </li>
-          <li>
-            <span class="reivewer">닉네임</span>
-            <span class="reivew">개노잼</span>
-          </li>
-          <li>
-            <span class="reivewer">닉네임</span>
-            <span class="reivew">개노잼</span>
-          </li>
-        </ul>
+        <ul class="review-box" id="reviewBox"></ul>
       </div>
     </section>
     <footer></footer>
