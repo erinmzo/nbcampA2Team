@@ -6,15 +6,24 @@
     <title>Document</title>
     <link rel="stylesheet" href="./reset.css" />
     <link rel="stylesheet" href="./index.css" />
-    <link rel="stylesheet" href="./pages/components/header.css">
-    <link rel="stylesheet" href="./pages/components/footer.css">
+    <link rel="stylesheet" href="./pages/components/header.css" />
+    <link rel="stylesheet" href="./pages/components/footer.css" />
     <script type="module" src="./script/index.js"></script>
     <script type="module" src="./script/search.js"></script>
+    <script type="module" src="./script/genre.js"></script>
     <script type="module" src="./script/import.js"></script>
   </head>
   <body>
     <header>
+      <div class="container">
+        <h1 class="logo">EYESMOVIE</h1>
+        <form id="search">
+          <input id="searchBar" type="text" placeholder="검색어를 입력하세요" />
+          <input id="searchBtn" type="submit" value="" />
+        </form>
+      </div>
     </header>
+
     <div class="container" onclick="location.href='index.html'">
       <section id="title">
         <div class="rating">Rating 6.5 / 10</div>
@@ -31,17 +40,13 @@
     <nav>
       <div class="container">
         <ul class="nav-bar">
-          <li><a href="./index.html">All</a></li>
-          <li>Animation</li>
-          <li>Action</li>
+          <li><a href="#">All</a></li>
+          <li><a href="#" class="test" data-genre="1">Animation</a></li>
+          <li><a href="#" class="test" data-genre="2">Action</a></li>
           <li>Comedy</li>
           <li>Horror</li>
           <li>Family</li>
           <li>Fantasy</li>
-          <select name="" id="정렬">
-            <option value="">By Name</option>
-            <option value="">By Rating</option>
-          </select>
         </ul>
       </div>
     </nav>
@@ -50,9 +55,15 @@
       <main id="movie-card-list"></main>
     </div>
 
-    <div class="container" id="upBtn-move">
-      <a class="upBtn">⬆︎</a>
+    <div class="container">
+      div>
+      <a href="#" class="up-btn">
+        <span>🔝</span>
+      </a>
     </div>
-    <footer></footer>
+
+    <footer>
+      <p>copyright&copy;내배캠. 눈에는 눈 이에는 2조</p>
+    </footer>
   </body>
 </html>

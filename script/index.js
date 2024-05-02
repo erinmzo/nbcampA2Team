@@ -1,4 +1,15 @@
-document.addEventListener('DOMContentLoaded', movie);
+document.addEventListener('DOMContentLoaded', function () {
+  movie();
+  movieRender();
+})
+
+
+window.onscroll = function () {
+  document.getElementsByClassName('btn_gotop').addEventListener('click', function (e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
 
 const options = {
   method: 'GET',
@@ -23,15 +34,15 @@ export async function movie() {
 async function movieRender() {
   const data = await movie();
   const cardList = data['results']
-  .map(({ title, poster_path, id }) => {
-    return `
-    <div class="movie-card">
+    .map(({ original_title, poster_path, id }) => {
+      return `<div class="movie-card">
       <img src="https://image.tmdb.org/t/p/original${poster_path}" alt="poster" onclick="alert('${id}')"/>
       <h2 class="movie-title">${title}</h2>
     </div>`;
-  })
-  .join('');
+    })
+    .join('');
 
-document.getElementById('movie-card-list').innerHTML = cardList;
+  document.getElementById('movie-card-list').innerHTML = cardList;
 }
-movieRender();
+
+
