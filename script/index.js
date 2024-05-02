@@ -1,4 +1,15 @@
-document.addEventListener('DOMContentLoaded', movie);
+document.addEventListener('DOMContentLoaded', function () {
+  movie();
+  movieRender();
+})
+
+
+window.onscroll = function () {
+  document.getElementsByClassName('btn_gotop').addEventListener('click', function (e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
 
 const options = {
   method: 'GET',
@@ -34,22 +45,5 @@ async function movieRender() {
 
   document.getElementById('movie-card-list').innerHTML = cardList;
 }
-movieRender();
 
-window.onscroll = function () {
-  let scroll = document.documentElement.scrollTop || document.body.scrollTop;
-  let gotop = document.getElementsByClassName('.btn_gotop');
-  if (scrollPosition > 700) {
-    btnGoTop.style.display = 'block';
-  } else {
-    btnGoTop.style.display = 'none';
-  }
-  document.querySelector('.btn_gotop').addEventListener('click', function (event) {
-    // 기본 이벤트를 방지합니다 (예: 링크 이동)
-    event.preventDefault();
-
-    // 부드럽게 상단으로 스크롤합니다.
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-}
 
