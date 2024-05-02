@@ -6,6 +6,10 @@ body {
   background-color: black;
 }
 
+* {
+  user-select: none;
+}
+
 .container {
   width: 1280px;
   margin: 0 auto;
@@ -139,4 +143,15 @@ select option {
   align-items: center;
 
   margin-right: 5%;
+}
+
+.btn_gotop {
+  position: fixed;
+  bottom: 60px;
+  right: 6%;
+
+  font-size: 20px;
+
+  color: #ffffff;
+  cursor: pointer;
 }
