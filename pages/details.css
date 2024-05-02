@@ -1,3 +1,47 @@
+#credit {
+  background-color: black;
+}
+#credit .container {
+  width: 1280px;
+  margin: 0 auto;
+}
+#credit h2 {
+  color: white;
+  font-size: 22px;
+  font-weight: 700;
+}
+#credit .actor-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 44px;
+  margin-top: 35px;
+}
+#credit .actor-box li {
+  color: white;
+}
+#credit .actor-box li .actor-img {
+  overflow: hidden;
+  max-height: 350px;
+}
+#credit .actor-box li .actor-img img {
+  width: 100%;
+  object-fit: cover;
+}
+#credit .actor-box li .actor-info {
+  margin-top: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 16px;
+  gap: 7px;
+}
+#credit .actor-box li .actor-info .casting {
+  font-weight: 700;
+}
+#credit .actor-box li .actor-info .actor-name {
+  font-weight: 200;
+}
+
 #review {
     background-color: black;
 }
