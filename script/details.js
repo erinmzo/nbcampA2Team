@@ -1,3 +1,10 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  const movieId = urlParams.get("id"); //URL 쿼리 스트링 받아오기
+  fetchMovieDetails(movieId);
+  creditApi(movieId);
+});
+
 const options = {
   method: "GET",
   headers: {
@@ -7,14 +14,28 @@ const options = {
   },
 };
 
-async function fetchMovieDetails(movieID) {
+async function fetchMovieDetails(movieId) {
   try {
-    const url = `https://api.themoviedb.org/3/movie/${movieID}?language=ko-KR`;
+    const url = `https://api.themoviedb.org/3/movie/${movieId}?language=ko-KR`;
     const response = await fetch(url, options);
     const movie = await response.json();
     displayMovieDetails(movie);
   } catch (error) {
     return alert("영화 정보를 불러오는 데 실패했습니다.", error);
+  }
+}
+
+async function creditApi(movieId) {
+  try {
+    const response = await fetch(
+      `https://api.themoviedb.org/3/movie/${movieId}/credits?language=en-US`,
+      options
+    );
+    const data = await response.json();
+    creditRender(data);
+  } catch (error) {
+    console.log("영화 정보를 불러오는 데 실패했습니다.", error);
+    return [];
   }
 }
 
@@ -32,29 +53,8 @@ function displayMovieDetails(movie) {
   detailsSection.style.backgroundImage = `linear-gradient(transparent, black 90%), url('https://image.tmdb.org/t/p/original${movie.backdrop_path}')`;
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  const testMovieId = "693134"; // 임시로 작동하는지 확인. 듄 Part 2의 ID
-  fetchMovieDetails(testMovieId);
-  // const movieId = new URLSearchParams(window.location.search).get("id"); // URL 쿼리 스트링 받아오기
-  // fetchMovieDetails(movieId);
-});
-
-async function creditApi() {
-  try {
-    const response = await fetch(
-      "https://api.themoviedb.org/3/movie/693134/credits?language=ko-KR",
-      options
-    );
-    const data = await response.json();
-    return data.cast;
-  } catch (error) {
-    console.log("영화 정보를 불러오는 데 실패했습니다.", error);
-    return [];
-  }
-}
-
-async function creditRender() {
-  const castList = await creditApi();
+function creditRender(data) {
+  const castList = data.cast;
   const slicedCast = castList.slice(0, 4);
   const actorBox = document.querySelector(".actor-box");
   const actorFr = document.createDocumentFragment();
@@ -78,5 +78,3 @@ async function creditRender() {
   });
   actorBox.appendChild(actorFr);
 }
-
-creditRender();
