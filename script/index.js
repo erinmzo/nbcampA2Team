@@ -24,10 +24,21 @@ export async function movie() {
   }
 }
 
+async function genre() {
+  const url = "https://api.themoviedb.org/3/genre/movie/list";
+  try {
+    const response = await fetch(url, options);
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return alert(error);
+  }
+}
+
 async function movieData() {
-  const data = await movie();
-  movieRender(data);
-  movieMainRender(data[0]);
+  const movieList = await movie();
+  movieRender(movieList);
+  movieMainRender(movieList[0]);
 }
 
 function movieMainRender(movie) {
@@ -49,8 +60,8 @@ function moveCommentPage(id) {
   location.href = "./pages/details.html?id=" + id;
 }
 
-export async function movieRender(movie) {
-  const cardList = movie
+export async function movieRender(movieList) {
+  const cardList = movieList
     .map(({ title, poster_path, id }) => {
       return `<div class="movie-card" data-id="${id}">
       <img src="https://image.tmdb.org/t/p/original${poster_path}" alt="poster" />
@@ -60,12 +71,44 @@ export async function movieRender(movie) {
     .join("");
 
   document.getElementById("movie-card-list").innerHTML = cardList;
+
+  //클릭하면 서브페이지로 이동
   const movieCard = document.querySelectorAll(".movie-card");
   movieCard.forEach((el) => {
     el.addEventListener("click", () => {
       moveCommentPage(el.dataset.id);
     });
   });
+
+  const navList = document.querySelectorAll(".nav-bar li");
+  navList.forEach((list) => {
+    list.addEventListener("click", (event) => {
+      const categoryName = event.target.textContent;
+      event.target.classList.add("active");
+      categoryFn(categoryName);
+    });
+  });
+}
+
+async function categoryFn(categoryName) {
+  const genreData = await genre();
+  const movieList = await movie();
+  const genreList = genreData.genres;
+  const filteredGenreArray = genreList.filter((genre) => {
+    return genre.name === categoryName;
+  });
+  const filterId = filteredGenreArray[0].id;
+  const filterdMovie = movieList.filter((movie) =>
+    movie.genre_ids.includes(filterId)
+  );
+  const movieCardList = document.getElementById("movie-card-list");
+  if (!filterdMovie.length) {
+    movieCardList.style.display = "block";
+    movieCardList.innerHTML = "<div>영화가 없습니다.</div>";
+  } else {
+    movieCardList.style.display = "grid";
+    movieRender(filterdMovie);
+  }
 }
 
 movieData();

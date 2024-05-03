@@ -52,14 +52,12 @@ nav {
   font-size: 20px;
   gap: 20px;
 }
-
-.nav-bar a {
+.nav-bar li {
+  cursor: pointer;
+}
+.nav-bar li.active {
   text-decoration: none;
   color: #81acff;
-}
-
-.nav-bar a:hover {
-  color: #fff;
 }
 
 .nav-bar li {
@@ -74,6 +72,8 @@ main {
   flex-wrap: wrap;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 15px;
+  color: white;
+  text-align: center;
 }
 .movie-card {
   display: flex;
