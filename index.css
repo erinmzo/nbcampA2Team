@@ -51,12 +51,12 @@ nav {
   font-size: 20px;
 }
 
-a {
+.nav-bar a {
   text-decoration: none;
   color: #81acff;
 }
 
-a:hover {
+.nav-bar a:hover {
   color: #fff;
 }
 
@@ -90,26 +90,26 @@ main {
   background-color: #0f214e;
   color: #fff;
   font-weight: 300;
+  font-size: 18px;
 }
 
-img {
+.movie-card img {
   width: 100%;
+  min-height: 463px;
   object-fit: cover;
 }
 
-img:hover {
+.movie-card img:hover {
   cursor: pointer;
 }
 
 #up-btn {
   position: fixed;
-  bottom: 180px;
+  bottom: 50px;
   right: 5%;
-
-  font-size: 60px;
-
-  color: #fff;
+  font-size: 40px;
+  color: #222;
   cursor: pointer;
-
-  background-color: #ffffff00;
+  background-color: #ffffff;
+  border: none;
 }
