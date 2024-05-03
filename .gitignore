@@ -390,4 +390,6 @@ dist
 .history
 .ionide
 
+firebase.js
+
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,jetbrains,jetbrains+iml,jetbrains+all,node,dotenv
