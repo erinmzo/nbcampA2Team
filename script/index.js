@@ -12,6 +12,7 @@ window.onscroll = function () {
     });
 };
 
+
 const options = {
   method: 'GET',
   headers: {
@@ -37,6 +38,7 @@ export async function movie() {
 async function movieRender() {
   const data = await movie();
   const cardList = data['results']
+
     .map(({ title, poster_path, id }) => {
       return `<div class="movie-card">
       <img src="https://image.tmdb.org/t/p/original${poster_path}" alt="poster" onclick="alert('${id}')"/>
@@ -47,3 +49,4 @@ async function movieRender() {
 
   document.getElementById('movie-card-list').innerHTML = cardList;
 }
+
