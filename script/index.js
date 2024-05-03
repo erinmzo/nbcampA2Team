@@ -29,10 +29,10 @@ async function movieData() {
   movieRender(data);
 }
 
+
 async function movieRender(movie) {
-  const cardList = movie
-    .map(({ poster_path, title, id }) => {
-      return `<div class="movie-card">
+  const cardList = movie.map(({ title, poster_path, id }) => {
+    return `<div class="movie-card">
       <img src="https://image.tmdb.org/t/p/original${poster_path}" alt="poster" onclick="alert('${id}')"/>
       <h2 class="movie-title">${title}</h2>
     </div>`;
