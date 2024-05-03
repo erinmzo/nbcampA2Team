@@ -41,18 +41,31 @@ function movieMainRender(movie) {
   `;
   mainTitle.style.backgroundImage = `linear-gradient(transparent 0%, #0E4ECC 60%, black 100%), url('https://image.tmdb.org/t/p/original${movie.backdrop_path}')`;
   mainTitle.innerHTML = contents;
+  mainTitle.addEventListener("click", () => {
+    moveCommentPage(movie.id);
+  });
+}
+function moveCommentPage(id) {
+  location.href = "./detail.html?id=" + id;
 }
 
 export async function movieRender(movie) {
   const cardList = movie
     .map(({ title, poster_path, id }) => {
-      return `<div class="movie-card">
-      <img src="https://image.tmdb.org/t/p/original${poster_path}" alt="poster" onclick="alert('${id}')"/>
+      return `<div class="movie-card" data-id="${id}">
+      <img src="https://image.tmdb.org/t/p/original${poster_path}" alt="poster" />
       <h2 class="movie-title">${title}</h2>
     </div>`;
     })
     .join("");
 
   document.getElementById("movie-card-list").innerHTML = cardList;
+  const movieCard = document.querySelectorAll(".movie-card");
+  movieCard.forEach((el) => {
+    el.addEventListener("click", () => {
+      moveCommentPage(el.dataset.id);
+    });
+  });
 }
+
 movieData();
