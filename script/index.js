@@ -27,11 +27,25 @@ export async function movie() {
 async function movieData() {
   const data = await movie();
   movieRender(data);
+  movieMainRender(data[0]);
 }
 
-async function movieRender(movie) {
+function movieMainRender(movie) {
+  const mainTitle = document.getElementById('title');
+  const contents = `
+    <div class="container">
+      <div class="rating">Rating ${movie.vote_average.toFixed(2)} / 10</div>
+      <h1>${movie.title}</h1>
+      <p>${movie.overview}</p>
+    </div>
+  `;
+  mainTitle.style.backgroundImage = `linear-gradient(transparent 0%, #0E4ECC 60%, black 100%), url('https://image.tmdb.org/t/p/original${movie.backdrop_path}')`;
+  mainTitle.innerHTML = contents;
+}
+
+export async function movieRender(movie) {
   const cardList = movie
-    .map(({ poster_path, title, id }) => {
+    .map(({ title, poster_path, id }) => {
       return `<div class="movie-card">
       <img src="https://image.tmdb.org/t/p/original${poster_path}" alt="poster" onclick="alert('${id}')"/>
       <h2 class="movie-title">${title}</h2>

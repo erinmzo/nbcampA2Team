@@ -2,7 +2,8 @@ const options = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMTk5ZmRhOWE3MjY4ZTAwMTE3MTVhMjcxYjMzMTAwNSIsInN1YiI6IjY2MTdhMzllN2Q0MWFhMDE3ZDAwNzkxNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.svBiDsUi6VuVUKtPq8DVrEd7G6rkepmITGwi_94lCk8",
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjMTk5ZmRhOWE3MjY4ZTAwMTE3MTVhMjcxYjMzMTAwNSIsInN1YiI6IjY2MTdhMzllN2Q0MWFhMDE3ZDAwNzkxNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.svBiDsUi6VuVUKtPq8DVrEd7G6rkepmITGwi_94lCk8",
   },
 };
 
@@ -20,7 +21,9 @@ async function fetchMovieDetails(movieID) {
 function displayMovieDetails(movie) {
   document.getElementById("movie-title").textContent = movie.title;
   document.getElementById("overview").textContent = movie.overview;
-  document.getElementById("genre").textContent = movie.genres.map((genre) => genre.name).join(", "); // 장르 배열을 문자열로 변환
+  document.getElementById("genre").textContent = movie.genres
+    .map((genre) => genre.name)
+    .join(", "); // 장르 배열을 문자열로 변환
   document.getElementById("release-date").textContent = movie.release_date;
   document.getElementById("runtime").textContent = movie.runtime + " 분";
   document.getElementById("rating").textContent = movie.vote_average.toFixed(1);
@@ -38,7 +41,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 async function creditApi() {
   try {
-    const response = await fetch("https://api.themoviedb.org/3/movie/693134/credits?language=ko-KR", options);
+    const response = await fetch(
+      "https://api.themoviedb.org/3/movie/693134/credits?language=ko-KR",
+      options
+    );
     const data = await response.json();
     return data.cast;
   } catch (error) {
