@@ -110,8 +110,8 @@
   border: 1px solid white;
   height: 50px;
   margin: 10px;
-
   font-size: 16px;
+  padding: 0 10px;
 }
 
 #review button {

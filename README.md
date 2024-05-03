@@ -67,4 +67,5 @@ A2조 👀 눈에는 눈 이에는 2조 🤞
 <br>
 
 ## ❗️ 민수님이 0~10까지 전부 제작하셨어요! 고생하신 민수님께 박수를! 👏
-<img src="https://github.com/Just0neMoment/nbcampA2Team/assets/120879419/f3efdf50-1847-433d-8073-5e63da529c92" height="900px">
+<img src="https://github.com/Just0neMoment/nbcampA2Team/assets/120879419/f3efdf50-1847-433d-8073-5e63da529c92" height="900px" />
+<img src="https://github.com/Just0neMoment/nbcampA2Team/assets/120879419/ce559323-bd93-4f13-9041-73a4d348b524" height="900px" />
