@@ -1,4 +1,3 @@
-
 import { movie, movieRender } from "./index.js";
 
 async function searchFn() {
@@ -6,7 +5,6 @@ async function searchFn() {
   const dataList = data;
   const searchForm = document.getElementById("search");
   searchForm.addEventListener("submit", (event) => {
-
     event.preventDefault();
     const searchBar = document.getElementById("searchBar");
     const inputValue = searchBar.value;
