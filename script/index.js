@@ -57,6 +57,7 @@ function movieMainRender(movie) {
     moveCommentPage(movie.id);
   });
 }
+
 function moveCommentPage(id) {
   location.href = "./pages/details.html?id=" + id;
 }
@@ -72,15 +73,14 @@ export async function movieRender(movieList) {
     .join("");
 
   document.getElementById("movie-card-list").innerHTML = cardList;
-}
-
-//클릭하면 서브페이지로 이동
-const movieCard = document.querySelectorAll(".movie-card");
-movieCard.forEach((el) => {
-  el.addEventListener("click", () => {
-    moveCommentPage(el.dataset.id);
+  //클릭하면 서브페이지로 이동
+  const movieCard = document.querySelectorAll(".movie-card");
+  movieCard.forEach((el) => {
+    el.addEventListener("click", () => {
+      moveCommentPage(el.dataset.id);
+    });
   });
-});
+}
 
 const navList = document.querySelectorAll(".nav-bar li");
 navList.forEach((list) => {
