@@ -1,52 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>영화 검색 사이트</title>
+    <link rel="stylesheet" href="details.css" />
+    <link rel="stylesheet" href="../reset.css" />
+    <script type="module" src="../script/details.js"></script>
+    <script type="module" src="../script/review.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>영화 검색 사이트</title>
-  <link rel="stylesheet" href="details.css" />
-  <link rel="stylesheet" href="../reset.css" />
-  <script type="module" src="../script/details.js"></script>
-  <script type="module" src="../script/review.js"></script>
-</head>
-
-<body>
-  <header></header>
-  <main id="main">
-    <div class="container">
-      <h2 id="movie-title">영화제목</h2>
-    </div>
-  </main>
-  <section id="details">
-    <div class="container">
-      <p id="overview">영화설명</p>
-      <ul>
-        <li>장르 : <span id="genre"></span></li>
-        <li>개봉일 : <span id="release-date"></span></li>
-        <li>상영 시간 : <span id="runtime"></span></li>
-        <li>평점 : <span id="rating"></span></li>
-      </ul>
-    </div>
-  </section>
-  <section id="credit">
-    <div class="container">
-      <ul class="actor-box"></ul>
-    </div>
-  </section>
-  <section id="review">
-    <div class="container">
-      <h3>Review</h3>
-      <form id="reviewForm">
-        <input type="text" placeholder="  닉네임" id="nickname" />
-        <input type="text" placeholder="  비밀번호" id="password" />
-        <input type="text" placeholder="  리뷰를 남겨주세요." id="commentText" />
-        <button type="submit" id="reviewBtn">등록</button>
-      </form>
-      <ul class="review-box" id="reviewBox"></ul>
-    </div>
-  </section>
-  <footer></footer>
-</body>
-
+  <body>
+    <header></header>
+    <main id="main">
+      <div class="container">
+        <h2 id="movie-title">영화제목</h2>
+      </div>
+    </main>
+    <section id="details">
+      <div class="container">
+        <p id="overview">영화설명</p>
+        <ul>
+          <li>장르 : <span id="genre"></span></li>
+          <li>개봉일 : <span id="release-date"></span></li>
+          <li>상영 시간 : <span id="runtime"></span></li>
+          <li>평점 : <span id="rating"></span></li>
+        </ul>
+      </div>
+    </section>
+    <section id="credit">
+      <div class="container">
+        <h3>Actor</h3>
+        <ul class="actor-box"></ul>
+      </div>
+    </section>
+    <section id="review">
+      <div class="container">
+        <h3>Review</h3>
+        <form id="reviewForm">
+          <input type="text" placeholder="닉네임" id="nickname" />
+          <input type="password" placeholder="비밀번호" id="password" />
+          <input
+            type="text"
+            placeholder="리뷰를 남겨주세요."
+            id="commentText"
+          />
+          <button type="submit" id="reviewBtn">등록</button>
+        </form>
+        <ul class="review-box" id="reviewBox"></ul>
+      </div>
+    </section>
+    <footer></footer>
+  </body>
 </html>

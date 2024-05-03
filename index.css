@@ -16,6 +16,7 @@
 }
 
 #title {
+  cursor: pointer;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -48,23 +49,19 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   color: #fff;
   background-color: #0f214e;
   height: 100px;
   font-size: 20px;
+  gap: 20px;
 }
-
-a {
+.nav-bar li {
+  cursor: pointer;
+}
+.nav-bar li.active {
   text-decoration: none;
   color: #81acff;
-}
-
-a:hover {
-  color: #fff;
-}
-
-.nav-bar li {
-  padding: 20px 40px;
 }
 
 main {
@@ -76,6 +73,8 @@ main {
   flex-wrap: wrap;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 15px;
+  color: white;
+  text-align: center;
 }
 .movie-card {
   display: flex;
@@ -92,27 +91,35 @@ main {
   padding: 10px 0;
   background-color: #0f214e;
   color: #fff;
+<<<<<<< HEAD
+=======
+  font-weight: 300;
+  font-size: 18px;
+>>>>>>> f36da97dea877a6b6772a0e025dfabec5fca8ae2
 }
 
-img {
+.movie-card img {
   width: 100%;
+<<<<<<< HEAD
   height: 100%;
+=======
+  min-height: 463px;
+>>>>>>> f36da97dea877a6b6772a0e025dfabec5fca8ae2
   object-fit: cover;
 }
 
-img:hover {
+.movie-card img:hover {
   cursor: pointer;
 }
 
 #up-btn {
   position: fixed;
-  bottom: 180px;
+  bottom: 50px;
   right: 5%;
-
-  font-size: 60px;
-
-  color: #fff;
+  font-size: 40px;
+  color: #222;
   cursor: pointer;
+<<<<<<< HEAD
 
   background-color: #ffffff00;
 
@@ -157,4 +164,13 @@ img:hover {
 
 #option-hide {
   display: none;
+=======
+  background-color: #ffffff;
+  border: none;
+}
+@media (max-width: 1200px) {
+  .container {
+    width: 90%;
+  }
+>>>>>>> f36da97dea877a6b6772a0e025dfabec5fca8ae2
 }
