@@ -61,4 +61,7 @@ header .container {
   header .container {
     width: 90%;
   }
+  #searchBar {
+    width: 50%;
+  }
 }
