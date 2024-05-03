@@ -39,7 +39,7 @@ function movieMainRender(movie) {
       <p>${movie.overview}</p>
     </div>
   `;
-  mainTitle.style.backgroundImage = `linear-gradient(transparent 0%, #0E4ECC 60%, black 100%), url('https://image.tmdb.org/t/p/original${movie.backdrop_path}')`;
+  mainTitle.style.backgroundImage = `linear-gradient(transparent 0%, black 100%), url('https://image.tmdb.org/t/p/original${movie.backdrop_path}')`;
   mainTitle.innerHTML = contents;
   mainTitle.addEventListener("click", () => {
     moveCommentPage(movie.id);
