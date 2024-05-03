@@ -45,10 +45,12 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
   color: #fff;
   background-color: #0f214e;
   height: 100px;
   font-size: 20px;
+  gap: 20px;
 }
 
 .nav-bar a {
@@ -61,7 +63,6 @@ nav {
 }
 
 .nav-bar li {
-  padding: 20px 40px;
 }
 
 main {
@@ -112,4 +113,9 @@ main {
   cursor: pointer;
   background-color: #ffffff;
   border: none;
+}
+@media (max-width: 1200px) {
+  .container {
+    width: 90%;
+  }
 }
