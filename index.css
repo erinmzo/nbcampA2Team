@@ -43,7 +43,15 @@
 }
 
 nav {
+  position: relative;
   background-color: #000;
+}
+nav .container {
+  background-color: #0f214e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 0;
 }
 .nav-bar {
   display: flex;
@@ -51,9 +59,8 @@ nav {
   align-items: center;
   flex-wrap: wrap;
   color: #fff;
-  background-color: #0f214e;
-  height: 100px;
   font-size: 20px;
+  padding: 0 40px;
   gap: 20px;
 }
 .nav-bar li {
@@ -68,6 +75,7 @@ main {
   background-color: #000;
   padding: 60px 0;
 }
+
 #movie-card-list {
   display: grid;
   flex-wrap: wrap;
@@ -85,26 +93,17 @@ main {
 }
 .movie-title {
   width: 100%;
-
   text-align: center;
-
   padding: 10px 0;
   background-color: #0f214e;
   color: #fff;
-<<<<<<< HEAD
-=======
   font-weight: 300;
   font-size: 18px;
->>>>>>> f36da97dea877a6b6772a0e025dfabec5fca8ae2
 }
 
 .movie-card img {
   width: 100%;
-<<<<<<< HEAD
-  height: 100%;
-=======
   min-height: 463px;
->>>>>>> f36da97dea877a6b6772a0e025dfabec5fca8ae2
   object-fit: cover;
 }
 
@@ -119,58 +118,56 @@ main {
   font-size: 40px;
   color: #222;
   cursor: pointer;
-<<<<<<< HEAD
-
   background-color: #ffffff00;
-
   border: none;
 }
-
-#toggle-btn {
+.sort-box {
+  position: absolute;
+  right: 130px;
+  top: 40px;
+}
+.sort-box #toggle-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 130px;
-  height: 35px;
-
+  padding: 8px 0;
   border: 1px solid black;
   box-sizing: border-box;
   border-radius: 5px;
-  padding: 5px 5px;
-
   font-size: 15px;
   font-weight: bold;
-
   background-color: #0e4dcc;
   color: #fff;
 }
 
-#toggle-btn:hover {
+.sort-box #toggle-btn:hover {
   cursor: pointer;
   background-color: #3b6ac7;
 }
-
-.option-btn {
+.sort-box ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 0;
+}
+.sort-box .option-btn {
+  display: none;
   width: 130px;
   height: 35px;
   background-color: #3b6ac7;
   color: #fff;
   border: 1px solid black;
-
   border-radius: 5px;
 }
 
-.option-btn:hover {
+.sort-box .option-btn:hover {
   cursor: pointer;
   background-color: #0e4dcc;
 }
 
-#option-hide {
-  display: none;
-=======
-  background-color: #ffffff;
-  border: none;
-}
 @media (max-width: 1200px) {
   .container {
     width: 90%;
   }
->>>>>>> f36da97dea877a6b6772a0e025dfabec5fca8ae2
 }
