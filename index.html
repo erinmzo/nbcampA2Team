@@ -21,7 +21,7 @@
     <nav>
       <div class="container">
         <ul class="nav-bar">
-          <li>All</a></li>
+          <li>All</li>
           <li>Animation</li>
           <li>Action</a></li>
           <li>Comedy</li>
@@ -30,22 +30,20 @@
           <li>Fantasy</li>
         </ul>
 
-        <button type="button" class="toggle-btn">
-          정렬 
-          <span>🔽</span>
+        <button type="button" id="toggle-btn">
+          정렬 🜄
         </button>
 
-        <ul class="option hide">
-          <li><button type="button" class="option-btn">By Name</button></li>
-          <li><button type="button" class="option-btn">By Rating</button></li>
+        <ul id="option-hide">
+          <li><button type="button" class="option-btn" id="name-btn">이름순</button></li>
+          <li><button type="button" class="option-btn" id='rating-btn'>별점순</button></li>
         </ul>
-
-      </div>
-    </nav>
+      </nav>
 
     <main>
       <div class="container">
-        <div id="movie-card-list"></div>
+        <div id="movie-card-list">
+        </div>
       </div>
     </main>
 

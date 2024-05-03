@@ -1,6 +1,20 @@
+const sortBtn = document.getElementById('toggle-btn');
+const optionBtn = document.getElementById('option-hide');
+const byNamed = document.getElementById('name-btn');
+const byRating = document.getElementById('rating-btn');
+
+// 탑버튼
 document.getElementById('up-btn').addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
+
+// 정렬 버튼 클릭시
+sortBtn.addEventListener(
+  'click',
+  () =>
+    (optionBtn.style.display =
+      optionBtn.style.display === 'none' ? 'block' : 'none')
+);
 
 const options = {
   method: 'GET',
@@ -55,4 +69,46 @@ export async function movieRender(movie) {
 
   document.getElementById('movie-card-list').innerHTML = cardList;
 }
+
+// 이름순 정렬
+byNamed.addEventListener('click', async () => {
+  const byNamedList = await movie();
+  byNamedList.sort((a, b) =>
+    a.title < b.title ? -1 : a.title > b.title ? 1 : 0
+  );
+
+  const movieCard = document.getElementById('movie-card-list');
+  movieCard.innerHTML = '';
+
+  byNamedList.map(({ poster_path, title, id }) => {
+    movieCard.innerHTML += `<div class="movie-card">
+      <img src="https://image.tmdb.org/t/p/original${poster_path}" alt="poster" onclick="alert('${id}')"/>
+      <h2 class="movie-title">${title}</h2>
+    </div>`;
+  });
+});
+
+// 별점순 정렬
+byRating.addEventListener('click', async () => {
+  const byRatingList = await movie();
+  byRatingList.sort((a, b) =>
+    a.vote_average < b.vote_average
+      ? 1
+      : a.vote_average > b.vote_average
+      ? -1
+      : 0
+  );
+
+  const movieCard = document.getElementById('movie-card-list');
+  movieCard.innerHTML = '';
+
+  byRatingList.map(({ poster_path, title, id, vote_average }) => {
+    movieCard.innerHTML += `<div class="movie-card">
+      <img src="https://image.tmdb.org/t/p/original${poster_path}" alt="poster" onclick="alert('${id}')"/>
+      <h2 class="movie-title">${title} ⭐️${vote_average.toFixed(1)}</h2>
+      
+    </div>`;
+  });
+});
+
 movieData();
