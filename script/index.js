@@ -84,6 +84,10 @@ export async function movieRender(movieList) {
   navList.forEach((list) => {
     list.addEventListener("click", (event) => {
       const categoryName = event.target.textContent;
+      navList.forEach((list) => {
+        list.classList.remove("active");
+      });
+
       event.target.classList.add("active");
       categoryFn(categoryName);
     });
@@ -94,20 +98,26 @@ async function categoryFn(categoryName) {
   const genreData = await genre();
   const movieList = await movie();
   const genreList = genreData.genres;
-  const filteredGenreArray = genreList.filter((genre) => {
-    return genre.name === categoryName;
-  });
-  const filterId = filteredGenreArray[0].id;
-  const filterdMovie = movieList.filter((movie) =>
-    movie.genre_ids.includes(filterId)
-  );
-  const movieCardList = document.getElementById("movie-card-list");
-  if (!filterdMovie.length) {
-    movieCardList.style.display = "block";
-    movieCardList.innerHTML = "<div>영화가 없습니다.</div>";
+
+  if (categoryName === "All") {
+    movieRender(movieList);
   } else {
-    movieCardList.style.display = "grid";
-    movieRender(filterdMovie);
+    const filteredGenreArray = genreList.filter((genre) => {
+      return genre.name === categoryName;
+    });
+    const filterId = filteredGenreArray[0].id;
+    const filterdMovie = movieList.filter((movie) =>
+      movie.genre_ids.includes(filterId)
+    );
+    const movieCardList = document.getElementById("movie-card-list");
+
+    if (!filterdMovie.length) {
+      movieCardList.style.display = "block";
+      movieCardList.innerHTML = "<div>영화가 없습니다.</div>";
+    } else {
+      movieCardList.style.display = "grid";
+      movieRender(filterdMovie);
+    }
   }
 }
 
