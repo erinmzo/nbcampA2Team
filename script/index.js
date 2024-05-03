@@ -46,7 +46,7 @@ function movieMainRender(movie) {
   });
 }
 function moveCommentPage(id) {
-  location.href = "./detail.html?id=" + id;
+  location.href = "./pages/details.html?id=" + id;
 }
 
 export async function movieRender(movie) {
