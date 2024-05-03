@@ -1,19 +1,19 @@
-document.getElementById('up-btn').addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+document.getElementById("up-btn").addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
 const options = {
-  method: 'GET',
+  method: "GET",
   headers: {
-    accept: 'application/json',
+    accept: "application/json",
     Authorization:
-      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmYTNmNTQ0YzM0NzgxODcxMzgxMmNhOTg4MTk2ZDY4ZCIsInN1YiI6IjY2MzBhMGEwNTU0NWNhMDEyZDQzOWJmYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.PCSH53do58eERB95XaVTj4PWERd4-VPCIJGu_iMongM',
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmYTNmNTQ0YzM0NzgxODcxMzgxMmNhOTg4MTk2ZDY4ZCIsInN1YiI6IjY2MzBhMGEwNTU0NWNhMDEyZDQzOWJmYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.PCSH53do58eERB95XaVTj4PWERd4-VPCIJGu_iMongM",
   },
 };
 
 export async function movie() {
   const url =
-    'https://api.themoviedb.org/3/movie/top_rated?language=ko-KR&page=1';
+    "https://api.themoviedb.org/3/movie/top_rated?language=ko-KR&page=1";
 
   try {
     const response = await fetch(url, options);
@@ -29,16 +29,16 @@ async function movieData() {
   movieRender(data);
 }
 
-
-async function movieRender(movie) {
-  const cardList = movie.map(({ title, poster_path, id }) => {
-    return `<div class="movie-card">
+export async function movieRender(movie) {
+  const cardList = movie
+    .map(({ title, poster_path, id }) => {
+      return `<div class="movie-card">
       <img src="https://image.tmdb.org/t/p/original${poster_path}" alt="poster" onclick="alert('${id}')"/>
       <h2 class="movie-title">${title}</h2>
     </div>`;
     })
-    .join('');
+    .join("");
 
-  document.getElementById('movie-card-list').innerHTML = cardList;
+  document.getElementById("movie-card-list").innerHTML = cardList;
 }
 movieData();
