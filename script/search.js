@@ -9,7 +9,6 @@ async function searchFn() {
     const searchBar = document.getElementById("searchBar");
     const inputValue = searchBar.value;
     const filteredData = dataList.filter((movie) => {
-      console.log(movie.title);
       return movie.title.includes(inputValue);
     });
     if (filteredData.length > 0) {

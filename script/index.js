@@ -1,11 +1,6 @@
-window.onscroll = function () {
-  document
-    .getElementsByClassName("up-btn")
-    .addEventListener("click", function (e) {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-};
+document.getElementById("up-btn").addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
 
 const options = {
   method: "GET",
@@ -28,21 +23,49 @@ export async function movie() {
     return alert(error);
   }
 }
+
 async function movieData() {
   const data = await movie();
   movieRender(data);
+  movieMainRender(data[0]);
 }
 
-export function movieRender(movie) {
-  const cardList = movie.map(({ title, poster_path, id }) => {
-    return `<div class="movie-card">
-      <img src="https://image.tmdb.org/t/p/original${poster_path}" alt="poster" onclick="alert('${id}')"/>
+function movieMainRender(movie) {
+  const mainTitle = document.getElementById("title");
+  const contents = `
+    <div class="container">
+      <div class="rating">Rating ${movie.vote_average.toFixed(2)} / 10</div>
+      <h1>${movie.title}</h1>
+      <p>${movie.overview}</p>
+    </div>
+  `;
+  mainTitle.style.backgroundImage = `linear-gradient(transparent 0%, #0E4ECC 60%, black 100%), url('https://image.tmdb.org/t/p/original${movie.backdrop_path}')`;
+  mainTitle.innerHTML = contents;
+  mainTitle.addEventListener("click", () => {
+    moveCommentPage(movie.id);
+  });
+}
+function moveCommentPage(id) {
+  location.href = "./pages/details.html?id=" + id;
+}
+
+export async function movieRender(movie) {
+  const cardList = movie
+    .map(({ title, poster_path, id }) => {
+      return `<div class="movie-card" data-id="${id}">
+      <img src="https://image.tmdb.org/t/p/original${poster_path}" alt="poster" />
       <h2 class="movie-title">${title}</h2>
     </div>`;
-  });
-  cardList.join("");
+    })
+    .join("");
 
   document.getElementById("movie-card-list").innerHTML = cardList;
+  const movieCard = document.querySelectorAll(".movie-card");
+  movieCard.forEach((el) => {
+    el.addEventListener("click", () => {
+      moveCommentPage(el.dataset.id);
+    });
+  });
 }
 
 movieData();
