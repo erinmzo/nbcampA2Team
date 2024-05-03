@@ -38,6 +38,8 @@ A2조 👀 눈에는 눈 이에는 2조 🤞
 
 # Folder Structure 📂
 ```bash
+📂 Root
+├── 📂 images
 ├── 📂 pages
 │   ├── 📂 components
 │   │   ├──📄 footer.css
@@ -45,17 +47,18 @@ A2조 👀 눈에는 눈 이에는 2조 🤞
 │   │   ├──📄 header.css
 │   │   └──📄 header.html
 │   ├──📄 details.css
-│   ├──📄 details.html
-│   ├── 📂 script
-│   │   ├──📄 details.js
-│   │   ├──📄 index.js
-│   │   └──📄 review.js
-│   ├──📄 .gitignore
-│   ├──📄 index.css
-│   ├──📄 index.html
-│   ├──📄 package-lock.json
-│   ├──📄 package.json
-│   └──📄 reset.css
+│   └──📄 details.html
+├── 📂 script
+│   ├──📄 details.js
+│   ├──📄 index.js
+│   └──📄 review.js
+├──📄 README.md
+├──📄 .gitignore
+├──📄 index.css
+├──📄 index.html
+├──📄 package-lock.json
+├──📄 package.json
+└──📄 reset.css
 
 ```
 

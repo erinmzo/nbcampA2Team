@@ -1,11 +1,6 @@
-window.onscroll = function () {
-  document
-    .getElementsByClassName('up-btn')
-    .addEventListener('click', function (e) {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-};
+document.getElementById('up-btn').addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
 
 const options = {
   method: 'GET',
@@ -23,7 +18,7 @@ export async function movie() {
   try {
     const response = await fetch(url, options);
     const data = await response.json();
-    return data;
+    return data.results;
   } catch (error) {
     return alert(error);
   }

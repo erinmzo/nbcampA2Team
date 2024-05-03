@@ -76,7 +76,9 @@ a:hover {
 #movie-card-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
+
+  gap: 15px;
 }
 
 .movie-title {
@@ -108,7 +110,7 @@ img:hover {
   cursor: pointer;
 }
 
-.up-btn {
+#up-btn {
   position: fixed;
   bottom: 180px;
   right: 5%;
