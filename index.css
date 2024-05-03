@@ -1,8 +1,9 @@
 body {
   background-image: url();
-  background-size: cover;
+  /* background-size: cover;
   background-repeat: no-repeat;
-  background-image: linear-gradient(0deg, black, #0e4ecc);
+  background-image: linear-gradient(0deg, black, #0e4ecc); */
+  background-color: black;
 }
 
 * {
@@ -29,6 +30,10 @@ body {
   width: 100%;
 
   color: #fff;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(0deg, black, #0e4ecc);
 }
 #title h1 {
   font-size: 84px;
@@ -121,4 +126,6 @@ img:hover {
   cursor: pointer;
 
   background-color: #ffffff00;
+
+  border: none;
 }
