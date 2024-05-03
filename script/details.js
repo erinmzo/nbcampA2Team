@@ -8,7 +8,7 @@ const options = {
 
 async function fetchMovieDetails(movieID) {
   try {
-    const url = `https://api.themoviedb.org/3/movie/${movieID}?language=en-US`;
+    const url = `https://api.themoviedb.org/3/movie/${movieID}?language=ko-KR`;
     const response = await fetch(url, options);
     const movie = await response.json();
     displayMovieDetails(movie);
@@ -22,11 +22,11 @@ function displayMovieDetails(movie) {
   document.getElementById("overview").textContent = movie.overview;
   document.getElementById("genre").textContent = movie.genres.map((genre) => genre.name).join(", "); // 장르 배열을 문자열로 변환
   document.getElementById("release-date").textContent = movie.release_date;
-  document.getElementById("runtime").textContent = movie.runtime + " min";
+  document.getElementById("runtime").textContent = movie.runtime + " 분";
   document.getElementById("rating").textContent = movie.vote_average.toFixed(1);
 
   const detailsSection = document.getElementById("main");
-  detailsSection.style.backgroundImage = `url('https://image.tmdb.org/t/p/original${movie.backdrop_path}')`;
+  detailsSection.style.backgroundImage = `linear-gradient(transparent, black 90%), url('https://image.tmdb.org/t/p/original${movie.backdrop_path}')`;
 }
 
 document.addEventListener("DOMContentLoaded", function () {
