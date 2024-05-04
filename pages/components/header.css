@@ -54,7 +54,7 @@ header .container {
   height: 37px;
   background-color: transparent;
   border: none;
-  background-image: url(/images/Group\ 1.png);
+  background-image: url(../../images/btn_search.png);
   cursor: pointer;
   font-size: 0;
 }
