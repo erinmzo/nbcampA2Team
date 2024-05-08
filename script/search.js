@@ -1,21 +1,12 @@
-import { movie, movieRender } from "./index.js";
-
-async function searchFn() {
-  const data = await movie();
-  const dataList = data;
+export function inputsearchFn() {
   const searchForm = document.getElementById("search");
   searchForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const searchBar = document.getElementById("searchBar");
     const inputValue = searchBar.value;
-    const filteredData = dataList.filter((movie) => {
-      return movie.title.includes(inputValue);
-    });
-    if (filteredData.length > 0) {
-      movieRender(filteredData);
-    } else {
-      alert("검색한 영화가 없습니다.");
+    if (!inputValue) {
+      return alert("검색어를 입력하세요");
     }
+    location.href = "/index.html" + "?search=" + inputValue;
   });
 }
-searchFn();

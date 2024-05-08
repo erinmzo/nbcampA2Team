@@ -20,10 +20,11 @@ header .container {
   justify-content: space-between;
 }
 
-.logo {
+.logo a {
   color: #ffffff;
   font-weight: bolder;
   font-size: 36px;
+  text-decoration: none;
 }
 
 #search {

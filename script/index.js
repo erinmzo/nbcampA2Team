@@ -59,7 +59,7 @@ function movieMainRender(movie) {
 }
 
 function moveCommentPage(id) {
-  location.href = "./pages/details.html?id=" + id;
+  location.href = "pages/details.html?id=" + id;
 }
 
 export async function movieRender(movieList) {
@@ -159,4 +159,24 @@ sortBtn.addEventListener("click", () => {
   });
 });
 
-movieData();
+async function loadSearchFn(value) {
+  const data = await movie();
+  const dataList = data;
+  const filteredData = dataList.filter((movie) => {
+    return movie.title.includes(value);
+  });
+  if (filteredData.length > 0) {
+    movieRender(filteredData);
+  } else {
+    alert("검색한 영화가 없습니다.");
+  }
+}
+
+const urlParams = new URLSearchParams(window.location.search);
+const searchValue = urlParams.get("search");
+
+if (!searchValue) {
+  movieData();
+} else {
+  loadSearchFn(searchValue);
+}

@@ -1,3 +1,5 @@
+import { inputsearchFn } from "./search";
+
 document.addEventListener("DOMContentLoaded", function () {
   var footerElement = document.querySelector("header");
   var xhr = new XMLHttpRequest();
@@ -5,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
       footerElement.innerHTML = xhr.responseText;
+      inputsearchFn();
     }
   };
   xhr.send();
